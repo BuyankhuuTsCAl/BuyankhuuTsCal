@@ -1,6 +1,194 @@
-<!DOCTYPE html>
 <html>
-    <body>
-        Homework 1
-    </body>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	<title>WDD Homework 8</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+	<style type="text/css"></style>
+</head>
+
+<body>
+	<div id="container">
+		<div id="header">
+			<div id="header-caption">
+				<div id="header-caption-logo"><img class="img-scaled" src="assets/images/logo.png"></div>
+				<div id="header-caption-name">Web Design DeCal</div>
+				<div class="clear"></div>
+			</div>
+			<div id="header-content">
+				<!-- ASSIGNMENT NAME -->
+				<div id="header-title">Homework 8</div>
+				<!-- DUE DATE -->
+				<div id="header-due">November 10th</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<div class="section">
+			<div class="info">
+				<!-- ASSIGNMENT TITLE -->
+				<div class="info-title">Intro to JavaScript</div>
+				<div class="info-content">
+					<!-- REQUIRED TOOLS -->
+					<!-- INTRODUCTION -->
+					<div class="info-intro">Let's get more comfortable with writing JavaScript. In this hw, you'll go
+						through the JavaScript topics we covered in lecture, including variables, functions,
+						<code>document.getElementById</code>, and manipulating classes.
+					</div>
+				</div>
+			</div>
+			<div class="body">
+				<div class="body-header">Assignment</div>
+				<!-- CONTENT -->
+
+				<!-- Styled Tags; P, UL, LI, .caption, A, IMG-->
+				<!-- Add P Tags for each paragraph -->
+				<!-- Use UL LI Tags for each lists -->
+				<!-- Use P Tags with "caption" class for paragraph captions (60% opacity) -->
+				<!-- Use IMG Tags for images -->
+				<!-- Can use CODE Tag for code snippets or references -->
+
+				<a href="hw8-starter.zip">
+					<div class="download">Download Assignment</div>
+				</a>
+
+				<h1>What we'll be doing</h1>
+				<p>First, we'll be writing JS in the web console to walk through how
+					<code>document.getElementById</code> can be used. Then, you'll write some code to add this toggle
+					functionality for our Spotify-style playlist page:
+				<p><img src="assets/images/result.gif"></p>
+				</p>
+
+
+				<h1>Review: How to get to the console</h1>
+				<p>For this class we'll be providing instructions for using the console and tools in Google Chrome.
+					Other browsers like Firefox have their own, similar console and web developer tools, but for
+					consistency we recommend that you follow along using Chrome.</p>
+				<p>To get to the console:
+				<ol>
+					<li>right-click and select Inspect Element, or cmd/ctrl + shift + i</li>
+					<li>click on the Console tab</li>
+					<img src="assets/images/console.png" alt="">
+				</ol>
+				</p>
+
+				<h1>Part 1: Your Favorite Music</h1>
+				<p>For this homework, we'll be mimicking the popular song list on a Spotify artist page. Our goal is to
+					be able to toggle the second half of the songs.</p>
+				<p>
+					<img src="assets/images/artist.png" alt="">
+				</p>
+				<p>When you open <code>index.html</code> it should look like this:</p>
+				<p>
+					<img src="assets/images/initial.png" alt="">
+				</p>
+				<p>
+					To be able to hide the second half of the songs, we're going to make the CSS class that we'll use in
+					our JS code in the next part.
+				</p>
+				<ol>
+					<li>Fill in <code>index.html</code> with your top 6 favorite songs, and the artists that they're by.
+					</li>
+					<li>Create a class in <code>style.css</code> called <code>.hidden</code>, and give it one rule,
+						<code>display: none;</code>
+					</li>
+					<li><strong>Save and refresh index.html</strong> so that it has this new CSS loaded. All your song
+						elements should still be visible.</li>
+					<li>We'll use this CSS class in the next part.</li>
+				</ol>
+
+				<h1>Part 2: <code>document.getElementById</code></h1>
+				<p>In CSS, we use the hashtag to "select" the HTML element with a certain id, and then write the CSS
+					rules to apply to that element. The corresponding thing in JS is the built-in function
+					<code>document.getElementById</code>, which takes one argument - a string that is the id. So in CSS,
+					we would say <code>#blue-box</code>, and in JS we would say
+					<code>document.getElementById("blue-box")</code>.
+				</p>
+
+				<p>For this part, we're going to go back to using the console. We're going to type JS code line-by-line
+					into the console, so that we can really understand what is happening.</p>
+
+				<p>We recommend that you have two browser windows open side-by-side, with this page on the left and
+					<code>index.html</code> on the right, so that you can follow the instructions easily.
+				</p>
+
+				<ol>
+					<li>Open the console.</li>
+					<li>Type a line to call the function to get the element with the id <code>songs-second-half</code>.
+						Hit enter. The console should respond with the corresponding HTML tag! Remember how functions
+						can return values? This is what the function call outputted.</li>
+					<li>Move your mouse to hover over the HTML tag outputted by the console. The HTML element on the
+						page (the last three songs) should be highlighted.</li>
+					<li>However, we don't want to write this long line of the code every time we want to do something
+						with this element. This is where variables are handy, to store something so that we can use it
+						later. <br><br>Write the same line of code to get to the element, but this time store it in a
+						variable called <code>songsSecondHalf</code></li>
+					<li>Just for clarity, let's check what's stored in the variable. Type <code>songsSecondHalf</code>
+						and hit enter. The console should again respond with the same HTML tag as earlier. Yay!</li>
+					<li>JS can tell us a lot about this HTML element!! What classes does it currently have? Type
+						<code>songsSecondHalf.classList</code> and see what the console responds (there should be no
+						classes).
+					</li>
+					<li>What child elements does this HTML tag contain? Type <code>songsSecondHalf.innerHTML</code> and
+						see what the console says.</li>
+					<li>Now let's try adding a CSS class: <code>songsSecondHalf.classList.add("hidden");</code> If you
+						added the <code>.hidden</code> class in <code>style.css</code> properly in part 3.1, then the
+						second three songs should have disappeared!</li>
+					<img src="assets/images/hidden.png" alt=""><br><br>
+					<li>Try <code>songsSecondHalf.classList</code> again - the list should now include
+						<code>hidden</code>.
+					</li>
+					<li>Now let's try removing the class: <code>songsSecondHalf.classList.remove("hidden");</code> The
+						songs should've appeared again!</li>
+					<li>Try <code>songsSecondHalf.classList</code> again - the list should be empty again.</li>
+					<li>JS actually has a convenient way of doing this (adding/removing the same class), called
+						<code>.classList.toggle("class")</code>. Try calling this function a few times on
+						<code>songsSecondHalf</code> with the <code>hidden</code> class.
+					</li>
+					<li><strong>Take a screenshot of your console</strong> showing that you completed the steps above
+						and put this screenshot in the same folder as <code>index.html</code></li>
+					<li>All the stuff we do in the console is temporary, though. Let's actually code in a file now!
+						<strong>Note that the <code>&lt;script&gt;</code> tag is already in the file for you.</strong>
+						Create <code>script.js</code> in the assets/js folder.
+					<li>Define a function named <code>toggleSongs</code>. The function should take no parameters and
+						will not return a value. When the function is called, it should toggle the <code>hidden</code>
+						class for the <code>#songs-second-half</code> element (which is basically what we just walked
+						through in the console!).</li>
+				</ol>
+
+				<h1>Part 3: Make the toggle button work</h1>
+				<p>
+					Next lecture, we'll learn about how to call functions specifically when the user clicks on
+					something. As a quick teaser, copy and paste this code in <code>script.js</code>, and if you wrote
+					the <code>toggleSongs</code> function correctly, the button on <code>index.html</code> should now
+					work! If clicking the button does not work as expected, review the previous part.
+				<pre><code>document.getElementById("toggle-button").onclick = toggleSongs;</code></pre>
+				</p>
+				<br>
+				<div class="body-header">Design Response</div>
+				<p>As usual, complete this week's reading response in <strong>design_responses.html</strong> after
+					reading <a href="https://uxdesign.cc/dark-patterns-in-ux-design-7009a83b233c" target="_blank"> this
+						medium article.</a></p>
+			</div>
+		</div>
+		<div id="submission">
+            <div id="submission-header">Submission</div>
+            <div id="submission-content">
+                <p>Submit your files to your GitHub Submission Repository by copying all the files from
+                    hw8-starter into
+                    the hw8 folder of your submission repository (replace the index.html originally in it).
+                    In your terminal, from your GitHub Submission Repository, run the following Git commands:
+                </p>
+                <ul>
+                    <li>git add -A</li>
+                    <li>git commit -m 'finished hw8'</li>
+                    <li>git push</li>
+                </ul>
+                <p>This assignment is due <strong>Thursday, November 10th</strong> at <strong>8:00PM
+                        PST</strong>.</p>
+            </div>
+        </div>
+	</div>
+</body>
+
 </html>
