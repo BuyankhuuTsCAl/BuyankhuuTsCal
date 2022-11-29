@@ -1,0 +1,114 @@
+
+body{
+  background-color: black;
+  position: relative;
+    
+}
+.sections{
+    width:50%;
+    height:100%;
+    
+    float:left;
+    }
+h5{
+   
+    color:white;
+    font-size: large;
+}
+h1{
+    color:white;
+    font-size: xx-large;
+}
+p{
+    color:white;
+    font-size: small;
+}
+.hex{
+    background-image: url("../img/hexagon.png");
+    border: none;
+    background-repeat: no-repeat;
+    float:left;
+    margin-left:6%;
+    margin-right:3%;
+    margin-top: 2%;
+    background-size: contain;
+    width:20%;
+    height:20%;
+}
+
+
+#row{
+
+    float:left;
+}
+
+.text{
+    position: absolute;
+    top: 50%;
+    left: 83%;
+    font-size: x-small;
+}
+button{
+    padding-top: 12%;
+    background-color: transparent;
+    border: none;
+}
+
+
+
+
+#buttons{
+align-items: center;
+}
+#label {
+   text-align: center;
+   padding-top: 15%;
+   font-size: large;
+}
+#label2{
+    padding-top: 15%;
+    font-size: large;
+}
+
+#bee{
+    position: absolute;
+    animation: movingBeeleft 10s infinite;
+   
+   
+
+}
+#rightbee{
+    position:absolute;
+    top:40%;
+    transform: scale(0);
+    animation: movingBeeright 8.5s 6s infinite
+}
+
+
+@keyframes movingBeeleft {
+   
+    0% {
+        transform: translateX(-30vw) scale(.2);
+     
+    }
+    100% {
+        transform: translateX(100vw) scale(.2);
+        
+    }
+    
+}
+@keyframes movingBeeright {
+   
+    0% {
+        transform: translateX(100vw) scale(.2);
+       
+        
+     
+    }
+    100% {
+        transform: translateX(-30vw) scale(.2);
+       
+    }
+    
+}
+

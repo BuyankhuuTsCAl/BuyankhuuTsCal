@@ -1,0 +1,53 @@
+body{
+    background-color: black;
+    transform: translateX();
+}
+
+h1{
+    color:yellow;
+    text-align: center;
+}
+#bee{
+    position: absolute;
+    animation: movingBeeleft 4s infinite;
+   
+   
+
+}
+#game{
+    display: none;
+}
+#rightbee{
+    position:absolute;
+    top:40%;
+    transform: scale(0);
+    animation: movingBeeright 6s 6s infinite
+}
+ 
+
+@keyframes movingBeeleft {
+   
+    0% {
+        transform: translateX(-30vw) scale(.2);
+     
+    }
+    100% {
+        transform: translateX(100vw) scale(.2);
+        
+    }
+    
+}
+@keyframes movingBeeright {
+   
+    0% {
+        transform: translateX(100vw) scale(.2);
+       
+        
+     
+    }
+    100% {
+        transform: translateX(-30vw) scale(.2);
+       
+    }
+    
+}
