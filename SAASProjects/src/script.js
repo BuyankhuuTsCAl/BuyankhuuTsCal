@@ -5,7 +5,12 @@ const code = params.get("code");
 if(document.getElementById("startButton")!=null){
 document.getElementById("startButton").addEventListener("click",function() {redirectToAuthCodeFlow(clientId)});
 }
-
+if (code){
+const accessToken = await getAccessToken(clientId, code);
+const topTracks =  await fetchTopTracks(accessToken);
+console.log(topTracks);
+checkTracks(topTracks);
+}
 
 function switchBackground(){
     document.getElementById("section1").style.display = "none";
