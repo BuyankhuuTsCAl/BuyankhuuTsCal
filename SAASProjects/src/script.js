@@ -26,8 +26,8 @@ async function sha256(plain) {
   }
 async function redirectToAuthCodeFlow(clientId) {
     
-    const verifier =  await sha256(generateCodeVerifier(50));
-    const challenge = (generateCodeChallenge(verifier));
+    const verifier = generateCodeVerifier(50);
+    const challenge = await (generateCodeChallenge(verifier));
     localStorage.setItem("verifier", verifier);
 
     const params = new URLSearchParams();
@@ -50,13 +50,20 @@ function generateCodeVerifier(length) {
     }
     return text;
 }
-
 async function generateCodeChallenge(codeVerifier) {
-    return btoa(String.fromCharCode.apply(null, [...new Uint8Array(codeVerifier)]))
+    function base64encode(string) {
+      return btoa(String.fromCharCode.apply(null, new Uint8Array(string)))
         .replace(/\+/g, '-')
         .replace(/\//g, '_')
         .replace(/=+$/, '');
-}
+    }
+  
+    const encoder = new TextEncoder();
+    const data = encoder.encode(codeVerifier);
+    const digest = await window.crypto.subtle.digest('SHA-256', data);
+  
+    return base64encode(digest);
+  }
 async function accessToken(client_id){
 
     const endpoint = "https://accounts.spotify.com/api/token"
