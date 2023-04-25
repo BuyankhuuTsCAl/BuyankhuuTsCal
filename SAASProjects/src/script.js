@@ -17,8 +17,15 @@ function switchBackground(){
     document.getElementById("section1").style.display = "none";
     document.getElementById("section2").style.display = "contents";
 }
+
+async function sha256(plain) {
+    const encoder = new TextEncoder()
+    const data = encoder.encode(plain)
+  
+    return window.crypto.subtle.digest('SHA-256', data)
+  }
 async function redirectToAuthCodeFlow(clientId) {
-    const verifier =  window.btoa(generateCodeVerifier(128)).replace("=","");
+    const verifier =  await sha256(generateCodeVerifier(128));
     const challenge = await  window.btoa(generateCodeChallenge(verifier));
     localStorage.setItem("verifier", verifier);
 
@@ -42,6 +49,7 @@ function generateCodeVerifier(length) {
     }
     return text;
 }
+
 async function generateCodeChallenge(codeVerifier) {
     const data = new TextEncoder().encode(codeVerifier);
     const digest = await window.crypto.subtle.digest('SHA-256', data);
