@@ -105,7 +105,7 @@ async function getAccessToken(clientId, code) {
     });
     console.log(result.json());
 
-    const { access_token } = await result.json();
+    const { access_token } =  result.json();
     return access_token;
 }
 
