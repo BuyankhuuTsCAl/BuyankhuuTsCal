@@ -25,7 +25,7 @@ function switchBackground(){
     document.getElementById("section1").style.display = "none";
     document.getElementById("section2").style.display = "contents";
 }
-function redirectToAuthCodeFlow() {
+async function redirectToAuthCodeFlow() {
     const verifier = generateCodeVerifier(128);
     const challenge = generateCodeChallenge(verifier);
 
@@ -41,8 +41,10 @@ function redirectToAuthCodeFlow() {
 
     document.location = `https://accounts.spotify.com/authorize?${params.toString()}`;
  
-    started = true;
-    console.log(started);
+    const accessToken = await getAccessToken(clientId, code);
+    const topTracks = await fetchTopTracks(accessToken);
+        
+    checkTracks(topTracks);
 }
 
 function generateCodeVerifier(length) {
