@@ -25,7 +25,8 @@ async function sha256(plain) {
     return window.crypto.subtle.digest('SHA-256', data)
   }
 async function redirectToAuthCodeFlow(clientId) {
-    const verifier =  await sha256(generateCodeVerifier(128));
+    
+    const verifier =  await sha256(cryptoRandomString({length: 50}));
     const challenge = (generateCodeChallenge(verifier));
     localStorage.setItem("verifier", verifier);
 
