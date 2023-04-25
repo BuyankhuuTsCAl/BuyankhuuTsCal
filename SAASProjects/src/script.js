@@ -62,6 +62,7 @@ async function getAccessToken(clientId, code) {
 
     const params = new URLSearchParams();
     params.append("client_id", clientId);
+    params.append("client_secret","090c9156d6944e04a147103e6d752350");
     params.append("grant_type", "authorization_code");
     params.append("code", code);
     params.append("redirect_uri", "https://buyankhuutscal.github.io/SAASProjects/wheel.html");
