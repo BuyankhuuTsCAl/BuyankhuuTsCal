@@ -26,7 +26,7 @@ async function sha256(plain) {
   }
 async function redirectToAuthCodeFlow(clientId) {
     const verifier =  await sha256(generateCodeVerifier(128));
-    const challenge = await  window.btoa(generateCodeChallenge(verifier));
+    const challenge = (generateCodeChallenge(verifier));
     localStorage.setItem("verifier", verifier);
 
     const params = new URLSearchParams();
@@ -51,9 +51,7 @@ function generateCodeVerifier(length) {
 }
 
 async function generateCodeChallenge(codeVerifier) {
-    const data = new TextEncoder().encode(codeVerifier);
-    const digest = await window.crypto.subtle.digest('SHA-256', data);
-    return btoa(String.fromCharCode.apply(null, [...new Uint8Array(digest)]))
+    return btoa(String.fromCharCode.apply(null, [...new Uint8Array(codeVerifier)]))
         .replace(/\+/g, '-')
         .replace(/\//g, '_')
         .replace(/=+$/, '');
