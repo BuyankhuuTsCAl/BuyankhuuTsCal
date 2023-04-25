@@ -4,8 +4,9 @@ body{
 button{
     position: absolute;
     background-color: #1DB954;
-    right:40%;
-    top:50%;
+    margin-top: 20%;
+   
+    margin-left: 40%;
     width:15%;
     height:10%;
     border:transparent;
