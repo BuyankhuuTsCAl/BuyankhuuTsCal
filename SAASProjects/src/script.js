@@ -27,8 +27,8 @@ async function redirectToAuthCodeFlow() {
 
     document.location = `https://accounts.spotify.com/authorize?${params.toString()}`;
  
-    const accessToken = await getAccessToken(clientId, code);
-    const topTracks = await fetchTopTracks(accessToken);
+    const accessToken =  getAccessToken(clientId, code);
+    const topTracks =  fetchTopTracks(accessToken);
         
     checkTracks(topTracks);
 }
