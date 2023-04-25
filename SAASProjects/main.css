@@ -6,8 +6,8 @@ button{
     background-color: #1DB954;
     left: 50%;
 	top: 50%;
-	width: 20px;
-	height: 20px;
+	width: 40px;
+	height: 40px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -16,5 +16,5 @@ button{
     
 }
 button:hover{
-    box-shadow: 5px 5px 5px lightgreen;
+    box-shadow: 10px 10px 10px lightgreen;
 }
