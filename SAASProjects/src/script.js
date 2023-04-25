@@ -53,7 +53,6 @@ async function generateCodeChallenge(codeVerifier) {
 }
 async function accessToken(client_id){
     const endpoint = "https://accounts.spotify.com/api/token"
-    const headers = {"Content-Type": "application/x-www-form-urlencoded"}
     const body = {
             "grant_type": "client_credentials",
             "client_id":client_id,
@@ -61,7 +60,9 @@ async function accessToken(client_id){
         }
 
     const requests = new XMLHttpRequest();
-    const response = requests.open("POST",endpoint, headers=headers, body=JSON.stringify(body))
+    const response = requests.open("POST",endpoint);
+    requests.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+    requests.send(JSON.stringify(body))
     const {access_token} = response.json();
     return access_token;
 }
