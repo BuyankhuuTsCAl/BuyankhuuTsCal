@@ -7,7 +7,7 @@ if(document.getElementById("startButton")!=null){
 document.getElementById("startButton").addEventListener("click",function() {redirectToAuthCodeFlow(clientId)});
 }
 if (code){
-const accessTokens = getAccessToken(clientId, code);
+const accessTokens = await getAccessToken(clientId, code);
 const topTracks =  await fetchTopTracks(accessTokens);
 checkTracks(topTracks);
 }
@@ -18,12 +18,8 @@ function switchBackground(){
     document.getElementById("section2").style.display = "contents";
 }
 async function redirectToAuthCodeFlow(clientId) {
-    const verifier = generateCodeVerifier(128);
-    const challenge = generateCodeChallenge(verifier);
-    console.log(verifier);
-    //const fs = require("fs");
-   // fs.writeFile("verifier.txt",verifier);
-    verifierClass = verifier;
+    const verifier =  generateCodeVerifier(128);
+    const challenge = await generateCodeChallenge(verifier);
     localStorage.setItem("verifier", verifier);
 
     const params = new URLSearchParams();
@@ -86,7 +82,7 @@ async function getAccessToken(clientId, code) {
     params.append("grant_type", "authorization_code");
     params.append("code", code);
     params.append("redirect_uri", "https://buyankhuutscal.github.io/SAASProjects/wheel.html");
-
+    params.append("code_verifier", verifierClass);
 
     const result = await fetch("https://accounts.spotify.com/api/token", {
         method: "POST",
