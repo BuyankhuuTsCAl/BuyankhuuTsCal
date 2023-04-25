@@ -6,7 +6,7 @@ var started = false;
 document.getElementById("startButton").addEventListener("click",redirectToAuthCodeFlow);
 
 
-if(code) {
+if(started) {
         const accessToken = await getAccessToken(clientId, code);
         const profile = await fetchProfile(accessToken);
         //populateUI(profile);
@@ -42,6 +42,7 @@ function redirectToAuthCodeFlow() {
     document.location = `https://accounts.spotify.com/authorize?${params.toString()}`;
  
     started = true;
+    console.log(started);
 }
 
 function generateCodeVerifier(length) {
