@@ -241,21 +241,20 @@ left:99.5%;
 .pole{
   position: absolute;
   height:5%;
-  width:30%;
-  background-color: yellow;
- 
+  width:50%;
+  background-color: yellow; 
   z-index: 5;
   animation: none;
   
   
 }
 .pole:nth-of-type(1){
-  
+  top:70%;
   background-color: black;
   transform: rotate(60deg);
 }
 .pole:nth-of-type(2){
- 
+  top:70%;
   background-color: black;
   transform: rotate(120deg);
 }
