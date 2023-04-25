@@ -31,11 +31,6 @@ async function redirectToAuthCodeFlow(clientId) {
     params.append("code_challenge", challenge);
 
     document.location = `https://accounts.spotify.com/authorize?${params.toString()}`;
- 
-    const accessToken = await getAccessToken(clientId, code);
-    const topTracks =  await fetchTopTracks(accessToken);
-    console.log(topTracks)
-    checkTracks(topTracks);
 }
 
 function generateCodeVerifier(length) {
