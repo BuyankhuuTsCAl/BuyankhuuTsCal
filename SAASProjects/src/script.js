@@ -18,7 +18,7 @@ function switchBackground(){
     document.getElementById("section2").style.display = "contents";
 }
 async function redirectToAuthCodeFlow(clientId) {
-    const verifier =  generateCodeVerifier(128);
+    const verifier =  base64urlencode(generateCodeVerifier(128));
     const challenge = await generateCodeChallenge(verifier);
     localStorage.setItem("verifier", verifier);
 
@@ -42,7 +42,6 @@ function generateCodeVerifier(length) {
     }
     return text;
 }
-
 async function generateCodeChallenge(codeVerifier) {
     const data = new TextEncoder().encode(codeVerifier);
     const digest = await window.crypto.subtle.digest('SHA-256', data);
