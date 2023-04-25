@@ -4,7 +4,10 @@ const code = params.get("code");
 
 
 document.getElementById("startButton").addEventListener("click",redirectToAuthCodeFlow);
-
+const accessToken =  getAccessToken(clientId, code);
+const topTracks =  fetchTopTracks(accessToken);
+        
+checkTracks(topTracks);
 
 
 function switchBackground(){
@@ -27,10 +30,7 @@ async function redirectToAuthCodeFlow() {
 
     document.location = `https://accounts.spotify.com/authorize?${params.toString()}`;
  
-    const accessToken =  getAccessToken(clientId, code);
-    const topTracks =  fetchTopTracks(accessToken);
-        
-    checkTracks(topTracks);
+    
 }
 
 function generateCodeVerifier(length) {
