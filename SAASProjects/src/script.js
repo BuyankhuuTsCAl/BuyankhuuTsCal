@@ -1,26 +1,12 @@
 const clientId = "b9cc3b5b1eab4ca08469fcf73a13e1b8";
 const params = new URLSearchParams(window.location.search);
 const code = params.get("code");
-var started = false;
+
 
 document.getElementById("startButton").addEventListener("click",redirectToAuthCodeFlow);
 
 
-if(started) {
-        const accessToken = await getAccessToken(clientId, code);
-        const profile = await fetchProfile(accessToken);
-        //populateUI(profile);
-        //const playlists = await fetchPlaylists(accessToken);
-        //populatePlaylists(playlists)
-       // const tracks = await fetchTracks(accessToken);
-        //checkTracks(tracks) 
-        
-    
-        const topTracks = await fetchTopTracks(accessToken);
-        
-        checkTracks(topTracks);
- 
-    }
+
 function switchBackground(){
     document.getElementById("section1").style.display = "none";
     document.getElementById("section2").style.display = "contents";
