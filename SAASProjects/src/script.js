@@ -19,7 +19,7 @@ function switchBackground(){
 }
 async function redirectToAuthCodeFlow(clientId) {
     const verifier =  window.btoa(generateCodeVerifier(128));
-    const challenge = await generateCodeChallenge(verifier);
+    const challenge = await  window.btoa(generateCodeChallenge(verifier));
     localStorage.setItem("verifier", verifier);
 
     const params = new URLSearchParams();
