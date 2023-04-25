@@ -103,7 +103,7 @@ async function getAccessToken(clientId, code) {
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: params
     });
-    console.log(result.json());
+   
 
     const { access_token } =  result.json();
     return access_token;
