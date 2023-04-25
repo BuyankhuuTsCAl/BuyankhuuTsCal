@@ -2,6 +2,7 @@ body{
     background:#252525;
 }
 button{
+    position: absolute;
     background-color: green;
     right:50%;
     top:50%;
