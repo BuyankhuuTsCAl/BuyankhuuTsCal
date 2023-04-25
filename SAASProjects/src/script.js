@@ -6,7 +6,7 @@ var started = false;
 document.getElementById("startButton").addEventListener("click",redirectToAuthCodeFlow);
 
 
-if(started) {
+if(code) {
         const accessToken = await getAccessToken(clientId, code);
         const profile = await fetchProfile(accessToken);
         //populateUI(profile);
@@ -20,8 +20,7 @@ if(started) {
         
         checkTracks(topTracks);
  
-    } 
-
+    }
 function switchBackground(){
     document.getElementById("section1").style.display = "none";
     document.getElementById("section2").style.display = "contents";

@@ -103,6 +103,26 @@ z-index:2;
   border: 1px solid black;
   border-radius:50%;
   background-color: yellow;
+  animation: lightSwitch 5s infinite;
+  
+}
+
+.lights:nth-of-type(9){
+  right:74%;
+  bottom: 5%;
+}
+.lights:nth-of-type(10){
+  right:86.5%;
+  bottom: 15%;
+}
+
+.lights:nth-of-type(5){
+  right:93.5%;
+  bottom: 25%;
+}
+.lights:nth-of-type(4){
+  right:97.8%;
+  bottom: 35%;
 }
 
 .lights:nth-of-type(1){
@@ -114,9 +134,90 @@ z-index:2;
   bottom: 55%;
 }
 .lights:nth-of-type(3){
-  right:97.5%;
+  right:97.2%;
   bottom: 65%;
 }
+.lights:nth-of-type(6){
+  right:92.5%;
+  bottom: 75%;
+}
+.lights:nth-of-type(7){
+  right:84.5%;
+  bottom: 85%;
+}
+.lights:nth-of-type(8){
+  right:70%;
+  bottom: 95%;
+}
+
+
+
+
+
+.lights:nth-of-type(19){
+ left:74%;
+  bottom: 5%;
+}
+.lights:nth-of-type(20){
+  left:86.5%;
+  bottom: 15%;
+}
+
+.lights:nth-of-type(11){
+  left:93.5%;
+  bottom: 25%;
+}
+.lights:nth-of-type(12){
+  left:97.8%;
+  bottom: 35%;
+}
+
+.lights:nth-of-type(13){
+  left:99.8%;
+  bottom: 45%;
+}
+.lights:nth-of-type(14){
+left:99.5%;
+  bottom: 55%;
+}
+.lights:nth-of-type(15){
+  left:97.2%;
+  bottom: 65%;
+}
+.lights:nth-of-type(16){
+  left:92.5%;
+  bottom: 75%;
+}
+.lights:nth-of-type(17){
+  left:84.5%;
+  bottom: 85%;
+}
+.lights:nth-of-type(18){
+  left:70%;
+  bottom: 95%;
+}
+
+.lights:nth-of-type(21){
+  right:62%;
+  bottom: 0%;
+}
+.lights:nth-of-type(22){
+  left:62%;
+  bottom: 0%;
+}
+
+.lights:nth-of-type(23){
+  right:58%;
+  bottom: 99%;
+}
+.lights:nth-of-type(24){
+  left:58%;
+  bottom: 99%;
+}
+
+
+
+
 .stands{
   position: absolute;
   height:10%;
@@ -127,6 +228,30 @@ z-index:2;
   bottom: 45%;
   background-color: black;
   z-index:50;
+}
+
+.pole{
+  position: absolute;
+  height:5%;
+  width:30%;
+  background-color: yellow;
+  bottom:50%;
+  z-index: -50;
+  animation: none;
+  
+  
+}
+.pole:nth-of-type(1){
+  top:108%;
+  left:42%;
+  background-color: black;
+  transform: rotate(60deg);
+}
+.pole:nth-of-type(2){
+  top:108%;
+  right:42%;
+  background-color: black;
+  transform: rotate(120deg);
 }
 @keyframes wheelturn{
   0%{
@@ -147,4 +272,14 @@ z-index:2;
   100%{
     transform:rotate(-360deg);
   }
+}
+@keyframes lightSwitch {
+  0%{
+    background-color: yellow;
+  }
+  100%{
+    border: transparent;
+    background: transparent;
+  }
+  
 }
