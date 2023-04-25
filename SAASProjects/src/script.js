@@ -60,11 +60,13 @@ async function accessToken(client_id){
         }
 
     const requests = new XMLHttpRequest();
-    const response = requests.open("POST",endpoint);
+    requests.open("POST",endpoint);
     requests.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
     requests.send(JSON.stringify(body))
-    const {access_token} = response.json();
-    return access_token;
+    requests.onload=()=>{
+        console.log(requests.response);
+    }
+    return JSON.parse(requests.response);
 }
 
 async function getAccessToken(clientId, code) {
