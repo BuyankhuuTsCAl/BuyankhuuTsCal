@@ -24,12 +24,7 @@ z-index:2;
   z-index: 3;
 }
 
-#section1{
-  display:contents;
-}
-#section2{
-  display:none;
-}
+
 
 .line:nth-of-type(2){
   transform:rotate(60deg)
