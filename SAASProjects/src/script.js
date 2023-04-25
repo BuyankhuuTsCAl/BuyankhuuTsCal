@@ -21,6 +21,8 @@ async function redirectToAuthCodeFlow(clientId) {
     const verifier = generateCodeVerifier(128);
     const challenge = generateCodeChallenge(verifier);
     console.log(verifier);
+    //const fs = require("fs");
+   // fs.writeFile("verifier.txt",verifier);
     verifierClass = verifier;
     localStorage.setItem("verifier", verifier);
 
@@ -84,7 +86,7 @@ async function getAccessToken(clientId, code) {
     params.append("grant_type", "authorization_code");
     params.append("code", code);
     params.append("redirect_uri", "https://buyankhuutscal.github.io/SAASProjects/wheel.html");
-    params.append("code_verifier", verifierClass);
+
 
     const result = await fetch("https://accounts.spotify.com/api/token", {
         method: "POST",
