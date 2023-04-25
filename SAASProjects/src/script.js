@@ -177,7 +177,7 @@ async function fetchTracks(token) {
 
 
 async function fetchTopTracks(token) {
-    const result = await fetch("https://api.spotify.com/v1/me/top/tracks?", {
+    const result = await fetch("https://api.spotify.com/v1/me/top/track", {
         headers: { Authorization: `Bearer ${token}` }
     });
 
