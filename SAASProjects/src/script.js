@@ -61,7 +61,7 @@ async function accessToken(client_id){
         }
 
     const requests = new XMLHttpRequest();
-    const response = requests.open("POST",endpoint, headers=headers, data=body)
+    const response = requests.open("POST",endpoint, headers=headers, body=JSON.stringify(body))
     const {access_token} = response.json();
     return access_token;
 }
