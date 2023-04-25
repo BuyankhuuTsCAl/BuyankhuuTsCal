@@ -54,7 +54,7 @@ async function generateCodeChallenge(codeVerifier) {
 async function accessToken(client_id){
     const endpoint = "https://accounts.spotify.com/api/token"
     const body = {
-            "grant_type": "client_credentials",
+            "grant_type": "authorization_code",
             "client_id":client_id,
             "client_secret":"090c9156d6944e04a147103e6d752350"
         }
