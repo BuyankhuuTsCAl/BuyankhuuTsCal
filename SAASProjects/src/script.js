@@ -1,6 +1,7 @@
 const clientId = "b9cc3b5b1eab4ca08469fcf73a13e1b8";
 const params = new URLSearchParams(window.location.search);
 const code = params.get("code");
+var verifierClass = null;
 
 if(document.getElementById("startButton")!=null){
 document.getElementById("startButton").addEventListener("click",function() {redirectToAuthCodeFlow(clientId)});
@@ -20,6 +21,7 @@ async function redirectToAuthCodeFlow(clientId) {
     const verifier = generateCodeVerifier(128);
     const challenge = generateCodeChallenge(verifier);
     console.log(verifier);
+    verifierClass = verifier;
     localStorage.setItem("verifier", verifier);
 
     const params = new URLSearchParams();
@@ -82,7 +84,7 @@ async function getAccessToken(clientId, code) {
     params.append("grant_type", "authorization_code");
     params.append("code", code);
     params.append("redirect_uri", "https://buyankhuutscal.github.io/SAASProjects/wheel.html");
-    params.append("code_verifier", verifier);
+    params.append("code_verifier", verifierClass);
 
     const result = await fetch("https://accounts.spotify.com/api/token", {
         method: "POST",
