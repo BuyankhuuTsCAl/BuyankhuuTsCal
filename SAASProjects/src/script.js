@@ -7,8 +7,8 @@ document.getElementById("startButton").addEventListener("click",redirectToAuthCo
 }
 if (code){
 
-const accessToken =  getAccessToken(clientId, code);
-const topTracks =  fetchTopTracks(accessToken);
+const accessToken = await getAccessToken(clientId, code);
+const topTracks =  await fetchTopTracks(accessToken);
         
 checkTracks(topTracks);
 }
