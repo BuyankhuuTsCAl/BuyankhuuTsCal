@@ -6,7 +6,7 @@ if(document.getElementById("startButton")!=null){
 document.getElementById("startButton").addEventListener("click",function() {redirectToAuthCodeFlow(clientId)});
 }
 if (code){
-const accessTokens = accessToken(clientId);
+const accessTokens = getAccessToken(clientId, code);
 const topTracks =  await fetchTopTracks(accessTokens);
 checkTracks(topTracks);
 }
@@ -52,11 +52,15 @@ async function generateCodeChallenge(codeVerifier) {
         .replace(/=+$/, '');
 }
 async function accessToken(client_id){
+
     const endpoint = "https://accounts.spotify.com/api/token"
     const body = {
             "grant_type": "authorization_code",
             "client_id":client_id,
-            "client_secret":"090c9156d6944e04a147103e6d752350"
+            "code":code,
+            "client_secret":"090c9156d6944e04a147103e6d752350",
+            
+
         }
 
     const requests = new XMLHttpRequest();
@@ -85,6 +89,7 @@ async function getAccessToken(clientId, code) {
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: params
     });
+    console.log(result);
 
     const { access_token } = await result.json();
     return access_token;
