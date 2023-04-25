@@ -89,7 +89,7 @@ async function getAccessToken(clientId, code) {
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: params
     });
-    console.log(result);
+    console.log(result.json());
 
     const { access_token } = await result.json();
     return access_token;
