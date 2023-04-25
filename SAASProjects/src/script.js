@@ -6,8 +6,8 @@ if(document.getElementById("startButton")!=null){
 document.getElementById("startButton").addEventListener("click",function() {redirectToAuthCodeFlow(clientId)});
 }
 if (code){
-const accessToken = await accessToken(clientId);
-const topTracks =  await fetchTopTracks(accessToken);
+const accessTokens = accessToken(clientId);
+const topTracks =  await fetchTopTracks(accessTokens);
 checkTracks(topTracks);
 }
 
