@@ -11,6 +11,7 @@ const topTracks =  await fetchTopTracks(accessTokens);
 checkTracks(topTracks);
 }
 
+
 function switchBackground(){
     document.getElementById("section1").style.display = "none";
     document.getElementById("section2").style.display = "contents";
@@ -58,7 +59,7 @@ async function accessToken(client_id){
             "client_id":client_id,
             "client_secret":"090c9156d6944e04a147103e6d752350"
         }
-    response = requests.post(endpoint, headers=headers, data=body)
+    const response = requests.post(endpoint, headers=headers, data=body)
     const {access_token} = response.json();
     return access_token;
 }
