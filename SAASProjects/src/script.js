@@ -2,13 +2,13 @@ const clientId = "b9cc3b5b1eab4ca08469fcf73a13e1b8";
 const params = new URLSearchParams(window.location.search);
 const code = params.get("code");
 
-
+if (code){
 document.getElementById("startButton").addEventListener("click",redirectToAuthCodeFlow);
 const accessToken =  getAccessToken(clientId, code);
 const topTracks =  fetchTopTracks(accessToken);
         
 checkTracks(topTracks);
-
+}
 
 function switchBackground(){
     document.getElementById("section1").style.display = "none";
