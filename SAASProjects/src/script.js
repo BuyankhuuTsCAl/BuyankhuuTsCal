@@ -89,6 +89,7 @@ async function accessToken(client_id){
 async function getAccessToken(clientId, code) {
     const verifier = localStorage.getItem("verifier");
     console.log(verifier);
+    console.log(code);
     const params = new URLSearchParams();
     params.append("client_id", clientId);
     params.append("client_secret","090c9156d6944e04a147103e6d752350");
