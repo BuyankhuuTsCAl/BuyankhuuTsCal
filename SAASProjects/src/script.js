@@ -19,7 +19,7 @@ function switchBackground(){
 async function redirectToAuthCodeFlow(clientId) {
     const verifier = generateCodeVerifier(128);
     const challenge = generateCodeChallenge(verifier);
-
+    console.log(verifier);
     localStorage.setItem("verifier", verifier);
 
     const params = new URLSearchParams();
@@ -75,7 +75,7 @@ async function accessToken(client_id){
 
 async function getAccessToken(clientId, code) {
     const verifier = localStorage.getItem("verifier");
-
+    console.log(verifier);
     const params = new URLSearchParams();
     params.append("client_id", clientId);
     params.append("client_secret","090c9156d6944e04a147103e6d752350");
