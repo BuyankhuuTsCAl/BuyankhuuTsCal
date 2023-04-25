@@ -18,7 +18,7 @@ function switchBackground(){
     document.getElementById("section2").style.display = "contents";
 }
 async function redirectToAuthCodeFlow(clientId) {
-    const verifier =  base64urlencode(generateCodeVerifier(128));
+    const verifier =  window.btoa(generateCodeVerifier(128));
     const challenge = await generateCodeChallenge(verifier);
     localStorage.setItem("verifier", verifier);
 
