@@ -54,6 +54,14 @@ overflow: hidden;
 .line:nth-of-type(6){
   transform:rotate(300deg)
 }
+img{
+  position:absolute;
+  right:10%;
+  top:15%;
+  width:40%;
+  height:70%;
+  
+}
 
 
 .cabin{
